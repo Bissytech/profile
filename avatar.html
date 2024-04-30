@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myprofile{
+            display: flex;
+            gap: 30px;
+        }
+
+        .thebutton{
+            margin: 20px 0px 0px 40px;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+  
+            <div class="myprofile">
+                <img src alt="" id="img">
+                <div class="page" id="list">
+                    <!-- has the biodata of customers -->
+                </div>
+
+            </div>
+       
+
+    <div class="thebutton">
+        <button onclick="prev()">Previous</button>
+        <button onclick="next()">Next</button>
+    </div>
+</body>
+
+</html>
+<script>
+    // let arr = [1,2,3,4,5]
+
+    let img = document.getElementById('img')
+    let list = document.getElementById('list')
+    let index = 0
+    let arrObj = [
+        { Firstname: "Daniel", Lastname: "Jide", age: 20, Gender: "Female", Skincolor: "Dark", Haircolor: "Brown", Nationality: "Ghana", image: 'pp.jpg'},
+        { Firstname: "Shola", Lastname: "Savage", age: 16, Gender: "Male", Skincolor: "Light", Haircolor: "Black", Nationality: "USA", image: 'images.jpg' },
+        { Firstname: "Violet", Lastname: "Thompson", age: 16, Gender: "Female", Skincolor: "Light", Haircolor: "Blonde", Nationality: "Kenya", image: 'dp1.jpg' },
+        { Firstname: "Handsome", Lastname: "Delek", age: 28, Gender: "Male", Skincolor: "Light", Haircolor: "Ginger", Nationality: "Austra", image: 'dp2.jpg' },
+        { Firstname: "Adebisi", Lastname: "Ogunjimi", age: 19, Gender: "Female", Skincolor: "Dark", Haircolor: "Brown", Nationality: "Ethiopia", image: 'dp3.jpg' },
+        { Firstname: "Daniels", Lastname: "Jackson", age: 42, Gender: "Male", Skincolor: "Light", Haircolor: "Dark", Nationality: "Canada", image: 'dp4.jpg' },
+        { Firstname: "Jason", Lastname: "Kaka", age: 17, Gender: "Male", Skincolor: "Dark", Haircolor: "Brown", Nationality: "UK", image:'pp2.jpg' }];
+
+    function displayCard(){
+        img.src = arrObj[index].image
+        list.innerHTML = 
+        `<h4> Name: ${arrObj[index].Firstname}  ${arrObj[index].Lastname} </h4>
+        <h4> Age: ${arrObj[index].age} </h4>
+        <h4> Gender: ${arrObj[index].Gender} </h4>
+        <h4> Skin Color: ${arrObj[index].Skincolor} </h4>
+        <h4> Hair Color: ${arrObj[index].Haircolor} </h4>
+        <h4> Nationality: ${arrObj[index].Nationality} </h4>`
+
+    }
+
+    displayCard()
+
+    // let filteredArr = arrObj.filter((obj, index) => obj.age == 19)
+
+    // let foundArr = arrObj.findIndex((obj, index) => obj.age == 14)
+    // console.log(foundArr);
+    // console.log(filteredArr);
+
+    function prev(){
+        if (index == 0) {
+            index = arrObj.length - 1
+        } else {
+            index--
+        }
+        displayCard()
+    }
+
+    function next() {
+        if (index == arrObj.length - 1) {
+            index = 0
+        } else {
+            index++
+        }
+        displayCard()
+    }
+
+
+
+</script>
